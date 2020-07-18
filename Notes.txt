@@ -1,5 +1,0 @@
-﻿﻿Auth buradan aldik  : https://jasonwatmore.com/post/2020/07/06/aspnet-core-3-boilerplate-api-with-email-sign-up-verification-authentication-forgot-password
-adamin diger linkleri https://jasonwatmore.com/?page=2
-
-firebase   .net core https://github.com/step-up-labs/firebase-database-dotnet
-https://developer.okta.com/blog/2019/04/30/store-data-firebase-aspnet-mvc-csharp

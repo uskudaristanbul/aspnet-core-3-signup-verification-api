@@ -6,7 +6,6 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using WebApi.Entities;
 using WebApi.Helpers;
 
 namespace WebApi.Middleware
@@ -52,7 +51,7 @@ namespace WebApi.Middleware
                 var accountId = int.Parse(jwtToken.Claims.First(x => x.Type == "id").Value);
 
                 // attach account to context on successful jwt validation
-                context.Items["Account"] = await dataContext.Account.FindAsync(accountId);
+                context.Items["Account"] = await dataContext.Accounts.FindAsync(accountId);
             }
             catch 
             {

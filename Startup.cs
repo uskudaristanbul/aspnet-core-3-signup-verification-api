@@ -5,7 +5,6 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
-using WebApi.Entities;
 using WebApi.Helpers;
 using WebApi.Middleware;
 using WebApi.Services;
