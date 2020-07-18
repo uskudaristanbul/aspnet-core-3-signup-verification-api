@@ -17,7 +17,12 @@ namespace WebApi.Entities
         public int? VoucherId { get; set; }
         [Column(TypeName = "decimal(10, 2)")]
         public decimal? TotalAmount { get; set; }
+        [Column("Account_id")]
+        public int? AccountId { get; set; }
 
+        //[ForeignKey(nameof(AccountId))]
+        //[InverseProperty(nameof(Account.))]
+        //public virtual Account Account { get; set; }
         [ForeignKey(nameof(CustomerId))]
         [InverseProperty("Cart")]
         public virtual Customer Customer { get; set; }

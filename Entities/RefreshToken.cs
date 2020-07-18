@@ -1,11 +1,12 @@
-using Microsoft.EntityFrameworkCore;
-using System;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace WebApi.Entities
 {
-    [Owned]
-    public class RefreshToken
+    [Table("RefreshToken", Schema = "tekyerco_doory")]
+    public partial class RefreshToken
     {
         [Key]
         public int Id { get; set; }
@@ -19,5 +20,6 @@ namespace WebApi.Entities
         public string RevokedByIp { get; set; }
         public string ReplacedByToken { get; set; }
         public bool IsActive => Revoked == null && !IsExpired;
+
     }
 }

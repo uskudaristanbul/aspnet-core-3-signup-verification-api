@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace WebApi.Entities
 {
+    [Table("Account", Schema = "tekyerco_doory")]
     public class Account
     {
         public int Id { get; set; }
@@ -22,8 +24,7 @@ namespace WebApi.Entities
         public DateTime Created { get; set; }
         public DateTime? Updated { get; set; }
         public List<RefreshToken> RefreshTokens { get; set; }
-
-        public bool OwnsToken(string token) 
+        public bool OwnsToken(string token)
         {
             return this.RefreshTokens?.Find(x => x.Token == token) != null;
         }

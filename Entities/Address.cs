@@ -35,6 +35,7 @@ namespace WebApi.Entities
         public int? PostCodeId { get; set; }
         [StringLength(50)]
         public string FlatNo { get; set; }
+        [Required]
         [StringLength(50)]
         public string BuildingName { get; set; }
         [Column("Street_id")]
@@ -62,9 +63,12 @@ namespace WebApi.Entities
         public bool? IsActive { get; set; }
         [StringLength(100)]
         public string Location { get; set; }
-        [Column("User_id")]
-        public int? UserId { get; set; }
+        [Column("Account_id")]
+        public int? AccountId { get; set; }
 
+        //[ForeignKey(nameof(AccountId))]
+        //[InverseProperty(nameof(Account.Address))]
+        //public virtual Account Account { get; set; }
         [ForeignKey(nameof(AreaId))]
         [InverseProperty("Address")]
         public virtual Region Area { get; set; }
@@ -77,9 +81,6 @@ namespace WebApi.Entities
         [ForeignKey(nameof(StreetId))]
         [InverseProperty("Address")]
         public virtual Street Street { get; set; }
-        [ForeignKey(nameof(UserId))]
-        [InverseProperty("Address")]
-        public virtual User User { get; set; }
         [InverseProperty("CareerAddress")]
         public virtual ICollection<Career> Career { get; set; }
         [InverseProperty("Address")]

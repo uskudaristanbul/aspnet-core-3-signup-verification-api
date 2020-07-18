@@ -32,9 +32,6 @@ namespace WebApi.Entities
         public int? AccountId { get; set; }
         public int? CareerType { get; set; }
 
-        //[ForeignKey(nameof(AccountId))]
-        //[InverseProperty("Career")]
-        //public virtual Account Account { get; set; }
         [ForeignKey(nameof(CareerAddressId))]
         [InverseProperty(nameof(Address.Career))]
         public virtual Address CareerAddress { get; set; }
