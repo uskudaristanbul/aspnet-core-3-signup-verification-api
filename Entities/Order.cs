@@ -22,6 +22,8 @@ namespace WebApi.Entities
         public int Id { get; set; }
         [Column("user_id")]
         public int UserId { get; set; }
+        [Column("Account_id")]
+        public int AccountId { get; set; }
         [Column("address_id")]
         public int? AddressId { get; set; }
         [Column("Slot_id")]

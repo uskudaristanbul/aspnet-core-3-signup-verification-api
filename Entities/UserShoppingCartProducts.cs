@@ -30,5 +30,7 @@ namespace WebApi.Entities
         public string DiscountDescription { get; set; }
         [Column("User_id")]
         public int? UserId { get; set; }
+        [Column("Account_id")]
+        public int? AccountId { get; set; }
     }
 }

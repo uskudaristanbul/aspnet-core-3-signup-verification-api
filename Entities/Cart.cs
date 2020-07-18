@@ -13,6 +13,7 @@ namespace WebApi.Entities
         public int CartId { get; set; }
         [Column("Customer_id")]
         public int CustomerId { get; set; }
+
         [Column("Voucher_id")]
         public int? VoucherId { get; set; }
         [Column(TypeName = "decimal(10, 2)")]
@@ -21,6 +22,7 @@ namespace WebApi.Entities
         [ForeignKey(nameof(CustomerId))]
         [InverseProperty("Cart")]
         public virtual Customer Customer { get; set; }
+
         [InverseProperty("CartItemNavigation")]
         public virtual CartItem CartItem { get; set; }
     }
