@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WebApi.Helpers;
 
 namespace WebApi.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20200718180307_entitiesall6")]
+    partial class entitiesall6
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -231,6 +233,10 @@ namespace WebApi.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int?>("AccountId")
+                        .HasColumnName("Account_id")
+                        .HasColumnType("int");
+
                     b.Property<int?>("CareerAddressId")
                         .HasColumnName("CareerAddress_id")
                         .HasColumnType("int");
@@ -242,6 +248,10 @@ namespace WebApi.Migrations
                     b.Property<int?>("CareerDeliveryRegionId")
                         .HasColumnName("CareerDeliveryRegion_id")
                         .HasColumnType("int");
+
+                    b.Property<string>("CareerName")
+                        .HasColumnType("nvarchar(200)")
+                        .HasMaxLength(200);
 
                     b.Property<int?>("CareerPostCodeId")
                         .HasColumnName("CareerPostCode_id")

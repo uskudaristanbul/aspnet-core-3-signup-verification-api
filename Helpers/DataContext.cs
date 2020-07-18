@@ -9,7 +9,7 @@ namespace WebApi.Helpers
         public DbSet<Account> Accounts { get; set; }
         public virtual DbSet<Address> Address { get; set; }
         public virtual DbSet<AreaCode> AreaCode { get; set; }
-        public virtual DbSet<Attributes> Attribute { get; set; }
+        public virtual DbSet<ProductAttributes> Attribute { get; set; }
         public virtual DbSet<Career> Career { get; set; }
         public virtual DbSet<CareerOrder> CareerOrder { get; set; }
         public virtual DbSet<Cart> Cart { get; set; }
@@ -88,9 +88,6 @@ namespace WebApi.Helpers
                 optionsBuilder.UseSqlServer("Server=sql.zeus.domainhizmetleri.net;Database=tekyerco_DooryDB;User Id=tekyerco_doorydb; Password=Marmara1234");
             }
         }
-
-
-
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

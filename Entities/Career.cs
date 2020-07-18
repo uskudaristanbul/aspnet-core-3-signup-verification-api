@@ -18,8 +18,6 @@ namespace WebApi.Entities
         [Key]
         [Column("Career_id")]
         public int CareerId { get; set; }
-        [StringLength(200)]
-        public string CareerName { get; set; }
         [Column("CareerPostCode_id")]
         public int? CareerPostCodeId { get; set; }
         [Column("CareerCity_id")]
@@ -28,13 +26,7 @@ namespace WebApi.Entities
         public int? CareerAddressId { get; set; }
         [Column("CareerDeliveryRegion_id")]
         public int? CareerDeliveryRegionId { get; set; }
-        [Column("Account_id")]
-        public int? AccountId { get; set; }
         public int? CareerType { get; set; }
-
-        //[ForeignKey(nameof(AccountId))]
-        //[InverseProperty("Career")]
-        //public virtual Account Account { get; set; }
         [ForeignKey(nameof(CareerAddressId))]
         [InverseProperty(nameof(Address.Career))]
         public virtual Address CareerAddress { get; set; }
