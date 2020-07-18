@@ -63,7 +63,7 @@ namespace WebApi.Entities
         [StringLength(100)]
         public string Location { get; set; }
         [Column("User_id")]
-        public int? UserId { get; set; }
+        public int? AccountId { get; set; }
 
         [ForeignKey(nameof(AreaId))]
         [InverseProperty("Address")]
@@ -77,9 +77,9 @@ namespace WebApi.Entities
         [ForeignKey(nameof(StreetId))]
         [InverseProperty("Address")]
         public virtual Street Street { get; set; }
-        [ForeignKey(nameof(UserId))]
+        [ForeignKey(nameof(AccountId))]
         [InverseProperty("Address")]
-        public virtual User User { get; set; }
+        public virtual Account Account { get; set; }
         [InverseProperty("CareerAddress")]
         public virtual ICollection<Career> Career { get; set; }
         [InverseProperty("Address")]
