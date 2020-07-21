@@ -61,5 +61,8 @@ namespace WebApi.Entities
         public decimal? ServiceFeeForUnder { get; set; }
         [Column(TypeName = "decimal(12, 2)")]
         public decimal? ExpressDeliveryFee { get; set; }
+        public int? DayOfDate { get; set; }
+        public int? MonthOfDate { get; set; }
+        public int? YearOfDate { get; set; }
     }
 }

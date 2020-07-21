@@ -18,8 +18,6 @@ namespace WebApi.Entities
         public int WishListId { get; set; }
         [Column("Customer_id")]
         public int? CustomerId { get; set; }
-        [Column("Account_id")]
-        public int? AccountId { get; set; }
         [Column(TypeName = "datetime")]
         public DateTime? AddTime { get; set; }
 

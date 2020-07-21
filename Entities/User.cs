@@ -19,15 +19,18 @@ namespace WebApi.Entities
         [Column("name")]
         [StringLength(100)]
         public string Name { get; set; }
-        [Column("sirname")]
+        [Column("surname")]
         [StringLength(100)]
-        public string Sirname { get; set; }
+        public string Surname { get; set; }
         [Column("email")]
         [StringLength(100)]
         public string Email { get; set; }
         [Column("phone")]
         [StringLength(50)]
         public string Phone { get; set; }
+        public string RefreshToken { get; set; }
+        [Column(TypeName = "datetime")]
+        public DateTime? RefreshTokenEndDate { get; set; }
 
         [InverseProperty("User")]
         public virtual ICollection<Address> Address { get; set; }

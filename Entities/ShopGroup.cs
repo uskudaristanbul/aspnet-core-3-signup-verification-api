@@ -13,8 +13,6 @@ namespace WebApi.Entities
         public int ShopGroupId { get; set; }
         [Column("Customer_id")]
         public int? CustomerId { get; set; }
-        [Column("Account_id")]
-        public int? AccountId { get; set; }
         [Column("Store_id")]
         public int? StoreId { get; set; }
         [Column("Category_id")]

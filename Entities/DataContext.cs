@@ -1,25 +1,23 @@
 ﻿//using System;
 //using Microsoft.EntityFrameworkCore;
 //using Microsoft.EntityFrameworkCore.Metadata;
-//using WebApi.Entities;
 
 //namespace WebApi.Entities
 //{
-//    public partial class DooryContext : DbContext
+//    public partial class DataContext : DbContext
 //    {
-//        public DooryContext()
+//        public DataContext()
 //        {
 //        }
 
-//        public DooryContext(DbContextOptions<DooryContext> options)
+//        public DataContext(DbContextOptions<DataContext> options)
 //            : base(options)
 //        {
 //        }
 
-//        public virtual DbSet<Account> Account { get; set; }
+//        public virtual DbSet<Accounts> Accounts { get; set; }
 //        public virtual DbSet<Address> Address { get; set; }
 //        public virtual DbSet<AreaCode> AreaCode { get; set; }
-//        public virtual DbSet<ProductAttribute> Attribute { get; set; }
 //        public virtual DbSet<Career> Career { get; set; }
 //        public virtual DbSet<CareerOrder> CareerOrder { get; set; }
 //        public virtual DbSet<Cart> Cart { get; set; }
@@ -54,10 +52,12 @@
 //        public virtual DbSet<PostcodeStores> PostcodeStores { get; set; }
 //        public virtual DbSet<Product> Product { get; set; }
 //        public virtual DbSet<ProductAlternateProduct> ProductAlternateProduct { get; set; }
+//        public virtual DbSet<ProductAttribute> ProductAttribute { get; set; }
 //        public virtual DbSet<ProductBrand> ProductBrand { get; set; }
 //        public virtual DbSet<ProductsStores> ProductsStores { get; set; }
 //        public virtual DbSet<Purchase> Purchase { get; set; }
 //        public virtual DbSet<PurchaseItem> PurchaseItem { get; set; }
+//        public virtual DbSet<RefreshToken> RefreshToken { get; set; }
 //        public virtual DbSet<Region> Region { get; set; }
 //        public virtual DbSet<RegionStreet> RegionStreet { get; set; }
 //        public virtual DbSet<SellerBrand> SellerBrand { get; set; }
@@ -82,16 +82,26 @@
 //            if (!optionsBuilder.IsConfigured)
 //            {
 //#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-//                optionsBuilder.UseSqlServer("Server=sql.zeus.domainhizmetleri.net;Database=tekyerco_Doory;User Id=tekyerco_doory; Password=Marmara1234");
+//                optionsBuilder.UseSqlServer("Server=sql.zeus.domainhizmetleri.net;Database=tekyerco_DooryDB;User Id=tekyerco_doorydb; Password=Marmara1234");
 //            }
 //        }
 
 //        protected override void OnModelCreating(ModelBuilder modelBuilder)
 //        {
-//            modelBuilder.HasAnnotation("Relational:DefaultSchema", "tekyerco_doory");
+//            modelBuilder.HasAnnotation("Relational:DefaultSchema", "tekyerco_doorydb");
 
 //            modelBuilder.Entity<Address>(entity =>
 //            {
+//                entity.HasIndex(e => e.AreaId);
+
+//                entity.HasIndex(e => e.PostCodeId);
+
+//                entity.HasIndex(e => e.Region);
+
+//                entity.HasIndex(e => e.StreetId);
+
+//                entity.HasIndex(e => e.UserId);
+
 //                entity.HasOne(d => d.Area)
 //                    .WithMany(p => p.Address)
 //                    .HasForeignKey(d => d.AreaId)
@@ -120,6 +130,14 @@
 
 //            modelBuilder.Entity<Career>(entity =>
 //            {
+//                entity.HasIndex(e => e.CareerAddressId);
+
+//                entity.HasIndex(e => e.CareerCityId);
+
+//                entity.HasIndex(e => e.CareerDeliveryRegionId);
+
+//                entity.HasIndex(e => e.CareerPostCodeId);
+
 //                entity.HasOne(d => d.CareerAddress)
 //                    .WithMany(p => p.Career)
 //                    .HasForeignKey(d => d.CareerAddressId)
@@ -145,6 +163,8 @@
 //            {
 //                entity.HasKey(e => new { e.CareerId, e.OrderId });
 
+//                entity.HasIndex(e => e.OrderId);
+
 //                entity.HasOne(d => d.Career)
 //                    .WithMany(p => p.CareerOrder)
 //                    .HasForeignKey(d => d.CareerId)
@@ -160,6 +180,8 @@
 
 //            modelBuilder.Entity<Cart>(entity =>
 //            {
+//                entity.HasIndex(e => e.CustomerId);
+
 //                entity.HasOne(d => d.Customer)
 //                    .WithMany(p => p.Cart)
 //                    .HasForeignKey(d => d.CustomerId)
@@ -169,6 +191,12 @@
 
 //            modelBuilder.Entity<CartItem>(entity =>
 //            {
+//                entity.HasIndex(e => e.ProductId);
+
+//                entity.HasIndex(e => e.StoreId);
+
+//                entity.HasIndex(e => e.VoucherId);
+
 //                entity.Property(e => e.CartItemId).ValueGeneratedOnAdd();
 
 //                entity.HasOne(d => d.CartItemNavigation)
@@ -195,6 +223,10 @@
 
 //            modelBuilder.Entity<Category>(entity =>
 //            {
+//                entity.HasIndex(e => e.StoreCategoryId);
+
+//                entity.HasIndex(e => e.UpCategoryId);
+
 //                entity.Property(e => e.Name).IsUnicode(false);
 
 //                entity.HasOne(d => d.StoreCategory)
@@ -210,6 +242,8 @@
 
 //            modelBuilder.Entity<City>(entity =>
 //            {
+//                entity.HasIndex(e => e.CountryId);
+
 //                entity.HasOne(d => d.Country)
 //                    .WithMany(p => p.City)
 //                    .HasForeignKey(d => d.CountryId)
@@ -218,6 +252,12 @@
 
 //            modelBuilder.Entity<Comment>(entity =>
 //            {
+//                entity.HasIndex(e => e.OrderId);
+
+//                entity.HasIndex(e => e.ProductId);
+
+//                entity.HasIndex(e => e.StoreId);
+
 //                entity.HasOne(d => d.Order)
 //                    .WithMany(p => p.Comment)
 //                    .HasForeignKey(d => d.OrderId)
@@ -236,6 +276,10 @@
 
 //            modelBuilder.Entity<Contact>(entity =>
 //            {
+//                entity.HasIndex(e => e.AddressId);
+
+//                entity.HasIndex(e => e.StoreId);
+
 //                entity.HasOne(d => d.Address)
 //                    .WithMany(p => p.Contact)
 //                    .HasForeignKey(d => d.AddressId)
@@ -263,6 +307,8 @@
 //                entity.HasKey(e => new { e.CustomerId, e.AddressId })
 //                    .HasName("PK_User-Address");
 
+//                entity.HasIndex(e => e.AddressId);
+
 //                entity.HasOne(d => d.Address)
 //                    .WithMany(p => p.CustomerAddress)
 //                    .HasForeignKey(d => d.AddressId)
@@ -284,14 +330,19 @@
 
 //            modelBuilder.Entity<FavoredProduct>(entity =>
 //            {
-//                entity.HasKey(e => new { e.ProductId, e.CumstomerId })
+//                entity.HasKey(e => new { e.ProductId, e.AccountId })
 //                    .HasName("PK_FavoredProducts");
 
-//                entity.HasOne(d => d.Cumstomer)
+//                entity.HasIndex(e => e.AccountId)
+//                    .HasName("IX_FavoredProduct_Cumstomer_id");
+
+//                entity.HasIndex(e => e.StoreId);
+
+//                entity.HasOne(d => d.Account)
 //                    .WithMany(p => p.FavoredProduct)
-//                    .HasForeignKey(d => d.CumstomerId)
+//                    .HasForeignKey(d => d.AccountId)
 //                    .OnDelete(DeleteBehavior.ClientSetNull)
-//                    .HasConstraintName("FK_FavoredProducts_Customers");
+//                    .HasConstraintName("FK_FavoredProduct_Accounts");
 
 //                entity.HasOne(d => d.Product)
 //                    .WithMany(p => p.FavoredProduct)
@@ -309,6 +360,10 @@
 //            {
 //                entity.HasKey(e => new { e.StoreId, e.CustomerId })
 //                    .HasName("PK_FavoredStores");
+
+//                entity.HasIndex(e => e.CategoryId);
+
+//                entity.HasIndex(e => e.CustomerId);
 
 //                entity.HasOne(d => d.Category)
 //                    .WithMany(p => p.FavoredStore)
@@ -333,6 +388,8 @@
 //                entity.HasKey(e => new { e.StoreId, e.StoreFeatureId })
 //                    .HasName("PK_Seller_SellerFeature");
 
+//                entity.HasIndex(e => e.StoreFeatureId);
+
 //                entity.HasOne(d => d.StoreFeature)
 //                    .WithMany(p => p.FilterStoreStore)
 //                    .HasForeignKey(d => d.StoreFeatureId)
@@ -348,6 +405,14 @@
 
 //            modelBuilder.Entity<Location>(entity =>
 //            {
+//                entity.HasIndex(e => e.AddressId);
+
+//                entity.HasIndex(e => e.CareerId);
+
+//                entity.HasIndex(e => e.PostcodeId);
+
+//                entity.HasIndex(e => e.StoreId);
+
 //                entity.HasOne(d => d.Address)
 //                    .WithMany(p => p.LocationNavigation)
 //                    .HasForeignKey(d => d.AddressId)
@@ -371,6 +436,12 @@
 
 //            modelBuilder.Entity<Order>(entity =>
 //            {
+//                entity.HasIndex(e => e.StaffId);
+
+//                entity.HasIndex(e => e.StoreId);
+
+//                entity.HasIndex(e => e.UserId);
+
 //                entity.HasOne(d => d.Staff)
 //                    .WithMany(p => p.Order)
 //                    .HasForeignKey(d => d.StaffId)
@@ -392,6 +463,14 @@
 //            {
 //                entity.HasKey(e => e.ItemId)
 //                    .HasName("PK_order_items");
+
+//                entity.HasIndex(e => e.AlternativeItemId);
+
+//                entity.HasIndex(e => e.LocationId);
+
+//                entity.HasIndex(e => e.OrderId);
+
+//                entity.HasIndex(e => e.ProductId);
 
 //                entity.HasOne(d => d.AlternativeItem)
 //                    .WithMany(p => p.InverseAlternativeItem)
@@ -418,6 +497,8 @@
 //            {
 //                entity.HasKey(e => new { e.OrderId, e.SlotId });
 
+//                entity.HasIndex(e => e.SlotId);
+
 //                entity.HasOne(d => d.Order)
 //                    .WithMany(p => p.OrderSlots)
 //                    .HasForeignKey(d => d.OrderId)
@@ -436,6 +517,10 @@
 //                entity.HasKey(e => e.ItemId)
 //                    .HasName("PK_PostCodes-Distance_1");
 
+//                entity.HasIndex(e => e.PostCodeId);
+
+//                entity.HasIndex(e => e.SecondPostCodeId);
+
 //                entity.HasOne(d => d.PostCode)
 //                    .WithMany(p => p.PostCodeDistancePostCode)
 //                    .HasForeignKey(d => d.PostCodeId)
@@ -451,6 +536,14 @@
 
 //            modelBuilder.Entity<Postcode>(entity =>
 //            {
+//                entity.HasIndex(e => e.AreaCodeId);
+
+//                entity.HasIndex(e => e.LocationId);
+
+//                entity.HasIndex(e => e.PostCodeDistrictId);
+
+//                entity.HasIndex(e => e.SectorId);
+
 //                entity.HasOne(d => d.AreaCode)
 //                    .WithMany(p => p.Postcode)
 //                    .HasForeignKey(d => d.AreaCodeId)
@@ -482,6 +575,8 @@
 //                entity.HasKey(e => new { e.PostCodeId, e.StoreId })
 //                    .HasName("PK_Postcode_Stores_1");
 
+//                entity.HasIndex(e => e.StoreId);
+
 //                entity.HasOne(d => d.PostCode)
 //                    .WithMany(p => p.PostcodeStores)
 //                    .HasForeignKey(d => d.PostCodeId)
@@ -497,6 +592,10 @@
 
 //            modelBuilder.Entity<Product>(entity =>
 //            {
+//                entity.HasIndex(e => e.BrandId);
+
+//                entity.HasIndex(e => e.CategoryId);
+
 //                entity.Property(e => e.ProductName).IsUnicode(false);
 
 //                entity.HasOne(d => d.Brand)
@@ -515,6 +614,8 @@
 //            {
 //                entity.HasKey(e => new { e.ProductId, e.RelatedProductId })
 //                    .HasName("PK_Products-AlternativePorducts");
+
+//                entity.HasIndex(e => e.RelatedProductId);
 
 //                entity.HasOne(d => d.Product)
 //                    .WithMany(p => p.ProductAlternateProductProduct)
@@ -541,6 +642,8 @@
 //            {
 //                entity.HasKey(e => new { e.StoreId, e.ProductId });
 
+//                entity.HasIndex(e => e.ProductId);
+
 //                entity.HasOne(d => d.Product)
 //                    .WithMany(p => p.ProductsStores)
 //                    .HasForeignKey(d => d.ProductId)
@@ -558,6 +661,16 @@
 //            {
 //                entity.HasKey(e => e.ItemId)
 //                    .HasName("PK_PurchaseItems_1");
+
+//                entity.HasIndex(e => e.CareerId);
+
+//                entity.HasIndex(e => e.LocationId);
+
+//                entity.HasIndex(e => e.ProductId);
+
+//                entity.HasIndex(e => e.PurchaseId);
+
+//                entity.HasIndex(e => e.StoreId);
 
 //                entity.HasOne(d => d.Career)
 //                    .WithMany(p => p.PurchaseItem)
@@ -587,10 +700,21 @@
 //                    .HasConstraintName("FK_PurchaseItems_stores");
 //            });
 
+//            modelBuilder.Entity<RefreshToken>(entity =>
+//            {
+//                entity.HasIndex(e => e.AccountId);
+//            });
+
 //            modelBuilder.Entity<Region>(entity =>
 //            {
 //                entity.HasKey(e => e.AreaId)
 //                    .HasName("PK_Areas");
+
+//                entity.HasIndex(e => e.CityId);
+
+//                entity.HasIndex(e => e.CountryId);
+
+//                entity.HasIndex(e => e.DistrictId);
 
 //                entity.HasOne(d => d.City)
 //                    .WithMany(p => p.Region)
@@ -613,6 +737,8 @@
 //                entity.HasKey(e => new { e.RegionId, e.StreetId })
 //                    .HasName("PK_Regions-Streets");
 
+//                entity.HasIndex(e => e.StreetId);
+
 //                entity.HasOne(d => d.Region)
 //                    .WithMany(p => p.RegionStreet)
 //                    .HasForeignKey(d => d.RegionId)
@@ -631,6 +757,10 @@
 //                entity.HasIndex(e => e.Email)
 //                    .HasName("UQ__Staffs__AB6E61640B97E2B6")
 //                    .IsUnique();
+
+//                entity.HasIndex(e => e.ManagerId);
+
+//                entity.HasIndex(e => e.StoreId);
 
 //                entity.Property(e => e.Email).IsUnicode(false);
 
@@ -656,6 +786,8 @@
 //                entity.HasKey(e => new { e.StoreId, e.ProductId })
 //                    .HasName("PK__Stocks__E68284D31D1FFF5D");
 
+//                entity.HasIndex(e => e.ProductId);
+
 //                entity.HasOne(d => d.Product)
 //                    .WithMany(p => p.Stock)
 //                    .HasForeignKey(d => d.ProductId)
@@ -669,6 +801,16 @@
 
 //            modelBuilder.Entity<Store>(entity =>
 //            {
+//                entity.HasIndex(e => e.BrandId);
+
+//                entity.HasIndex(e => e.CityId);
+
+//                entity.HasIndex(e => e.CountryId);
+
+//                entity.HasIndex(e => e.PostCodeId);
+
+//                entity.HasIndex(e => e.StoreCategoryId);
+
 //                entity.HasOne(d => d.Brand)
 //                    .WithMany(p => p.Store)
 //                    .HasForeignKey(d => d.BrandId)
@@ -697,6 +839,8 @@
 
 //            modelBuilder.Entity<StoreCategory>(entity =>
 //            {
+//                entity.HasIndex(e => e.Up);
+
 //                entity.HasOne(d => d.UpNavigation)
 //                    .WithMany(p => p.InverseUpNavigation)
 //                    .HasForeignKey(d => d.Up)
@@ -705,6 +849,12 @@
 
 //            modelBuilder.Entity<Street>(entity =>
 //            {
+//                entity.HasIndex(e => e.Area);
+
+//                entity.HasIndex(e => e.City);
+
+//                entity.HasIndex(e => e.Country);
+
 //                entity.HasOne(d => d.AreaNavigation)
 //                    .WithMany(p => p.Street)
 //                    .HasForeignKey(d => d.Area)
@@ -726,6 +876,10 @@
 //                entity.HasKey(e => e.PurchaseId)
 //                    .HasName("PK_Supplies");
 
+//                entity.HasIndex(e => e.RelatedOrderId);
+
+//                entity.HasIndex(e => e.StoreId);
+
 //                entity.HasOne(d => d.RelatedOrder)
 //                    .WithMany(p => p.Supplier)
 //                    .HasForeignKey(d => d.RelatedOrderId)
@@ -739,6 +893,8 @@
 
 //            modelBuilder.Entity<WishList>(entity =>
 //            {
+//                entity.HasIndex(e => e.CustomerId);
+
 //                entity.HasOne(d => d.Customer)
 //                    .WithMany(p => p.WishList)
 //                    .HasForeignKey(d => d.CustomerId)
@@ -749,6 +905,10 @@
 //            {
 //                entity.HasKey(e => e.ItemId)
 //                    .HasName("PK_WishlistItems");
+
+//                entity.HasIndex(e => e.ProductId);
+
+//                entity.HasIndex(e => e.WishListId);
 
 //                entity.HasOne(d => d.Product)
 //                    .WithMany(p => p.WishlistItem)
