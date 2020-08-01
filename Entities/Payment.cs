@@ -5,7 +5,6 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace WebApi.Entities
 {
-    [Table("Payment", Schema = "dbo")]
     public partial class Payment
     {
         [Key]

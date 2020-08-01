@@ -6,7 +6,6 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace WebApi.Entities
 {
-    [Table("Comment", Schema = "dbo")]
     public partial class Comment
     {
         [Key]

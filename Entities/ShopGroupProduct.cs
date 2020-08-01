@@ -5,7 +5,6 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace WebApi.Entities
 {
-    [Table("ShopGroup-Product", Schema = "tekyerco_kozmi")]
     public partial class ShopGroupProduct
     {
         [Column("ShopGroup_id")]

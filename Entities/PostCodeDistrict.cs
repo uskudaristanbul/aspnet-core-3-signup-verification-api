@@ -5,7 +5,6 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace WebApi.Entities
 {
-    [Table("PostCodeDistrict", Schema = "tekyerco_kozmi")]
     public partial class PostCodeDistrict
     {
         public PostCodeDistrict()

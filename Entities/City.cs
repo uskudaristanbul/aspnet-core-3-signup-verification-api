@@ -6,7 +6,6 @@ using WebApi.Entities;
 
 namespace WebApi.Entities
 {
-    [Table("City", Schema = "dbo")]
     public partial class City
     {
         public City()

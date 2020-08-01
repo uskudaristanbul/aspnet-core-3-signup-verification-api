@@ -5,7 +5,6 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace WebApi.Entities
 {
-    [Table("WishList", Schema = "tekyerco_kozmi")]
     public partial class WishList
     {
         public WishList()

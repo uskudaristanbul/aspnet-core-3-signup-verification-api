@@ -5,7 +5,6 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace WebApi.Entities
 {
-    [Table("Layout_LayoutItem", Schema = "tekyerco_kozmi")]
     public partial class LayoutLayoutItem
     {
         [Key]

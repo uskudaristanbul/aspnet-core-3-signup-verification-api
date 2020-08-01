@@ -5,7 +5,6 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace WebApi.Entities
 {
-    [Table("Image", Schema = "dbo")]
     public partial class Image
     {
         [Key]
