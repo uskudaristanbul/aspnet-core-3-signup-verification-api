@@ -6,7 +6,6 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace WebApi.Entities
 {
-    [Table("DeliveryRegion", Schema = "dbo")]
     public partial class DeliveryRegion
     {
         public DeliveryRegion()

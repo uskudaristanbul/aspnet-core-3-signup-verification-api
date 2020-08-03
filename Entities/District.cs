@@ -5,7 +5,6 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace WebApi.Entities
 {
-    [Table("District", Schema = "dbo")]
     public partial class District
     {
         public District()

@@ -86,13 +86,16 @@ namespace WebApi.Helpers
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
                 optionsBuilder.UseSqlServer("Server=sql.zeus.domainhizmetleri.net;Database=tekyerco_DooryDB;User Id=tekyerco_doorydb; Password=Marmara1234");
+                //optionsBuilder.UseSqlServer("Server=localhost\\SQLEXPRESS01;Database=DooryNewDB;Trusted_Connection=True;");
+                //optionsBuilder.UseNpgsql("Host=km650864-001.dbaas.ovh.net ;Database=DBDoory;Username=mainUser;Password=Salih1234;Port=35446;Integrated Security=true;Pooling=true;");
+
             }
         }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.HasAnnotation("Relational:DefaultSchema", "tekyerco_doory");
+            modelBuilder.HasAnnotation("Relational:DefaultSchema", "DBDoory");
 
             modelBuilder.Entity<Address>(entity =>
             {

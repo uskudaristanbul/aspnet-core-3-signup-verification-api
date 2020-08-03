@@ -22,9 +22,8 @@ namespace WebApi.Controllers
         [EnableCors("ApiPolicy")]
 
         //[Authorize]
-        public async Task<ActionResult<string>> GetStoreProducts(int store_id, int category_id)
+        public async Task<ActionResult<string>> GetStoreProducts(int store_id, int? category_id)
         {
-
             var StoreProduct = from p in _context.Product
                                where p.CategoryId == category_id
                                join sp in _context.ProductsStores

@@ -5,7 +5,6 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace WebApi.Entities
 {
-    [Table("PostCode-Distance", Schema = "tekyerco_kozmi")]
     public partial class PostCodeDistance
     {
         [Key]
