@@ -20,6 +20,9 @@ namespace WebApi.Entities
         [Key]
         [Column("id")]
         public int Id { get; set; }
+        [Column("postcode")]
+        [StringLength(50)]
+        public string Postcode { get; set; }
         [StringLength(50)]
         public string AddressName { get; set; }
         public int? AddressType { get; set; }
@@ -32,8 +35,6 @@ namespace WebApi.Entities
         [StringLength(50)]
         public string CompanyName { get; set; }
         public int? CompanyNumber { get; set; }
-        [Column("PostCode_id")]
-        public int? PostCodeId { get; set; }
         [StringLength(50)]
         public string FlatNo { get; set; }
         [StringLength(50)]
@@ -65,13 +66,12 @@ namespace WebApi.Entities
         public string Location { get; set; }
         [Column("User_id")]
         public int? UserId { get; set; }
+        [Column("Account_id")]
+        public int? AccountId { get; set; }
 
         [ForeignKey(nameof(AreaId))]
         [InverseProperty("Address")]
         public virtual Region Area { get; set; }
-        [ForeignKey(nameof(PostCodeId))]
-        [InverseProperty(nameof(Postcode.Address))]
-        public virtual Postcode PostCode { get; set; }
         [ForeignKey(nameof(Region))]
         [InverseProperty(nameof(DeliveryRegion.Address))]
         public virtual DeliveryRegion RegionNavigation { get; set; }

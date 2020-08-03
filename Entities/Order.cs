@@ -22,12 +22,11 @@ namespace WebApi.Entities
         public int Id { get; set; }
         [Column("user_id")]
         public int UserId { get; set; }
-        [Column("Account_id")]
-        public int AccountId { get; set; }
         [Column("address_id")]
         public int? AddressId { get; set; }
-        [Column("Slot_id")]
-        public int? SlotId { get; set; }
+        [Column("postcode")]
+        [StringLength(20)]
+        public string Postcode { get; set; }
         [Column("order_status")]
         public int? OrderStatus { get; set; }
         [Column("order_date", TypeName = "date")]
@@ -57,17 +56,13 @@ namespace WebApi.Entities
         [StringLength(250)]
         public string VisitResultDescription { get; set; }
         [Column(TypeName = "decimal(10, 2)")]
-        public decimal? Amount { get; set; }
-        [Column(TypeName = "decimal(10, 2)")]
-        public decimal? SubTotal { get; set; }
+        public decimal? AmountAfterTax { get; set; }
         [Column(TypeName = "decimal(10, 2)")]
         public decimal? Discount { get; set; }
         [Column(TypeName = "decimal(10, 2)")]
-        public decimal? Total { get; set; }
-        [Column(TypeName = "date")]
-        public DateTime? SelectedDeliveryDate { get; set; }
-        [StringLength(50)]
-        public string SelectedDeliverySlotTime { get; set; }
+        public decimal? AmountAfterDiscount { get; set; }
+        [StringLength(20)]
+        public string Phone { get; set; }
 
         [ForeignKey(nameof(StaffId))]
         [InverseProperty("Order")]

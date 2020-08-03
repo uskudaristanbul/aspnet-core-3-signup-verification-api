@@ -101,11 +101,7 @@ namespace WebApi.Helpers
                     .HasForeignKey(d => d.AreaId)
                     .HasConstraintName("FK_Address_Area");
 
-                entity.HasOne(d => d.PostCode)
-                    .WithMany(p => p.Address)
-                    .HasForeignKey(d => d.PostCodeId)
-                    .HasConstraintName("FK_Address_Postcodes");
-
+               
                 entity.HasOne(d => d.RegionNavigation)
                     .WithMany(p => p.Address)
                     .HasForeignKey(d => d.Region)
