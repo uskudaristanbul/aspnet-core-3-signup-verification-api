@@ -9,7 +9,6 @@ namespace WebApi.Helpers
         public DbSet<Account> Accounts { get; set; }
         public virtual DbSet<Address> Address { get; set; }
         public virtual DbSet<AreaCode> AreaCode { get; set; }
-        public virtual DbSet<ProductAttributes> Attribute { get; set; }
         public virtual DbSet<Career> Career { get; set; }
         public virtual DbSet<CareerOrder> CareerOrder { get; set; }
         public virtual DbSet<Cart> Cart { get; set; }
@@ -44,13 +43,13 @@ namespace WebApi.Helpers
         public virtual DbSet<PostcodeStores> PostcodeStores { get; set; }
         public virtual DbSet<Product> Product { get; set; }
         public virtual DbSet<ProductAlternateProduct> ProductAlternateProduct { get; set; }
+        public virtual DbSet<ProductAttribute> ProductAttribute { get; set; }
         public virtual DbSet<ProductBrand> ProductBrand { get; set; }
         public virtual DbSet<ProductsStores> ProductsStores { get; set; }
         public virtual DbSet<Purchase> Purchase { get; set; }
         public virtual DbSet<PurchaseItem> PurchaseItem { get; set; }
         public virtual DbSet<Region> Region { get; set; }
         public virtual DbSet<RegionStreet> RegionStreet { get; set; }
-        public virtual DbSet<SellerBrand> SellerBrand { get; set; }
         public virtual DbSet<ShopGroup> ShopGroup { get; set; }
         public virtual DbSet<ShopGroupProduct> ShopGroupProduct { get; set; }
         public virtual DbSet<Slot> Slot { get; set; }
@@ -58,6 +57,7 @@ namespace WebApi.Helpers
         public virtual DbSet<Staff> Staff { get; set; }
         public virtual DbSet<Stock> Stock { get; set; }
         public virtual DbSet<Store> Store { get; set; }
+        public virtual DbSet<StoreBrand> StoreBrand { get; set; }
         public virtual DbSet<StoreCategory> StoreCategory { get; set; }
         public virtual DbSet<Street> Street { get; set; }
         public virtual DbSet<Supplier> Supplier { get; set; }
@@ -103,11 +103,6 @@ namespace WebApi.Helpers
                     .WithMany(p => p.Address)
                     .HasForeignKey(d => d.AreaId)
                     .HasConstraintName("FK_Address_Area");
-
-                entity.HasOne(d => d.PostCode)
-                    .WithMany(p => p.Address)
-                    .HasForeignKey(d => d.PostCodeId)
-                    .HasConstraintName("FK_Address_Postcodes");
 
                 entity.HasOne(d => d.RegionNavigation)
                     .WithMany(p => p.Address)
@@ -392,6 +387,7 @@ namespace WebApi.Helpers
                 entity.HasOne(d => d.User)
                     .WithMany(p => p.Order)
                     .HasForeignKey(d => d.UserId)
+                    .OnDelete(DeleteBehavior.Cascade)
                     .HasConstraintName("FK__orders__customer__47DBAE45");
             });
 
@@ -458,6 +454,8 @@ namespace WebApi.Helpers
 
             modelBuilder.Entity<Postcode>(entity =>
             {
+                entity.Property(e => e.Id).ValueGeneratedNever();
+
                 entity.HasOne(d => d.AreaCode)
                     .WithMany(p => p.Postcode)
                     .HasForeignKey(d => d.AreaCodeId)
