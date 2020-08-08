@@ -2,16 +2,19 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 using WebApi.Entities;
 using WebApi.Helpers;
 
 namespace WebApi.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[Action]")]
     [ApiController]
+    [EnableCors("ApiPolicy")]
     public class CategoryController : ControllerBase
     {
         private readonly DataContext _context;
@@ -20,6 +23,117 @@ namespace WebApi.Controllers
         {
             _context = context;
         }
+
+
+
+
+        [HttpGet]
+        [ActionName("AllCategories")]
+        public async Task<ActionResult<string>> GetAllCategory()
+        {
+            var UpCategories = from c in _context.Category
+                               where c.IsTopProductCategory == true
+                               select new
+                               {
+                                   CatId = c.Id,
+                                   CategoryName = c.Name,
+                                   CatOrderNumber = c.OrderNumber,
+                                   LowCat = c.InverseUpCategory.Select(k => new { Name = k.Name, CatId = k.Id, k.IsTopProductCategory, CatList = k.InverseUpCategory.Select(y => new { y.Name, y.Id, y.OrderNumber, y.IsTopProductCategory }) }).ToList()
+                               };
+
+            //var result = _context.Category.SelectMany(x=>x.InverseUpCategory.
+            //Select(y=> new {SubCategories = y.Id, y.Name, y.UpCategoryId, y.InverseUpCategory.Select
+            //(k=> new { lowCategories = k.Name, k.Id }) )
+            //)
+            var JsonCategories = JsonConvert.SerializeObject(UpCategories);
+            return JsonCategories;
+        }
+
+        //        var result = teachers.SelectMany(x => x.Classes.
+        //Select(y => new { description = y.Description, day = y.DayOFWeek, startAt = y.StartTime, endAt = y.EndTime, teacher = x.Name, teacherPhone = x.Phone }));
+
+        [ActionName("TopCategories")]
+        [HttpGet]
+        public async Task<ActionResult<string>> GetTopCategory()
+        {
+            var UpCategories = from c in _context.Category
+                               where c.IsTopProductCategory == true
+                               select new { c.Id, c.Name, c.OrderNumber };
+            var JsonUpCategories = JsonConvert.SerializeObject(UpCategories);
+            string result = JsonUpCategories;
+            return result;
+        }
+
+        // GET: api/Category/ProductSub
+        [ActionName("SubCategories")]
+        [HttpGet]
+        public async Task<ActionResult<string>> GetSubCategory()
+        {
+            var UpCategories = from c in _context.Category
+                               where c.IsTopProductCategory != true
+                               select new { c.Id, c.Name, c.OrderNumber, c.UpCategoryId };
+            var JsonUpCategories = JsonConvert.SerializeObject(UpCategories);
+            string result = JsonUpCategories;
+            return result;
+
+
+            //var SubCategories = from c in _context.Category
+            //                    join sc in _context.Category.Where(sc => sc.IsTopProductCategory == false)
+            //                    on c.UpCategoryId equals sc.Id
+            //                    select new { SubCat = c.UpCategoryId, c.Name, c.Id };
+            //var JsonCategories = JsonConvert.SerializeObject(SubCategories);
+            //string result = JsonCategories;
+            //return result;
+        }
+
+
+        // GET: api/Category/ProductSub
+        [ActionName("StoreTop")]
+        [HttpGet]
+        public async Task<ActionResult<string>> GetStoreCategory()
+        {
+            var StoreUpCategories = from c in _context.StoreCategory
+                                    where c.Up == 1
+                                    select new { UpCat = c.Id, c.Name };
+            var JsonUpCategories = JsonConvert.SerializeObject(StoreUpCategories);
+            string result = JsonUpCategories;
+            return result;
+        }
+
+        // GET: api/Category/ProductSub
+        [ActionName("StoreSub")]
+        [HttpGet]
+        public async Task<ActionResult<string>> GetStoreSubCategory()
+        {
+            var SubCategories = from c in _context.StoreCategory
+                                join sc in _context.StoreCategory.Where(sc => sc.Up == 1)
+                                on c.Up equals sc.Id
+                                select new { SubCat = c.Name, c.Up };
+            var JsonCategories = JsonConvert.SerializeObject(SubCategories);
+            string result = JsonCategories;
+            return result;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         // GET: api/Category
         [HttpGet]

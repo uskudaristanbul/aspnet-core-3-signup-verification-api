@@ -7,14 +7,20 @@ by editing this MSBuild file. In order to learn more about this please visit htt
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
     <_PublishTargetUrl>ftp://access825185911.webspace-data.io/./app</_PublishTargetUrl>
-    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA45cLw+t0wECFHPK30FpwtgAAAAACAAAAAAAQZgAAAAEAACAAAAB1nE3Gi3yscqpnknrmsuK0tR+F+mrPGT7SVPaG28hl2wAAAAAOgAAAAAIAACAAAAAi1g5fRn+mG559OQwWBdZH0tI90wQDixGFMT3FP40N4CAAAAANy5brAgyXixzy06vccJroXobyG5UQpR7QuI7Bgz+YskAAAAB+/Ls+Gil2BIzsvkfdbhxhODxDItafTH2sXkyxNr9cbSy4xBOl6Z/M3dmREiauu8uMf8Mv7Xzq2OSGD7HnQ6IH</EncryptedPassword>
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAARXligIJeOkeNx3vLP565uwAAAAACAAAAAAAQZgAAAAEAACAAAAC8COJusDGQeP8E8HxiX+dVjG8mzBlv2EgCPFAN1mLqYwAAAAAOgAAAAAIAACAAAAB61GQOWTuWlTTwBZGY4WGp9WB2ycpneUVvQtkQ0G9QGSAAAAC6xCFoCr40l93D58FA6MLtAxc1/hjEbDbgVN1c9sJWW0AAAACO+Lt4fDzGUklz+wuNV6XuTii887AMILd//iwDMbo1/P62K/pTT7vqt4nFemfJBcChLWPgD+e9siq+RE4ALfCM</EncryptedPassword>
   </PropertyGroup>
   <ItemGroup>
     <File Include="appsettings.Development.json">
-      <publishTime>08/01/2020 12:42:39</publishTime>
+      <publishTime>07/17/2020 06:23:14</publishTime>
     </File>
     <File Include="appsettings.json">
-      <publishTime>08/02/2020 16:38:45</publishTime>
+      <publishTime>08/06/2020 11:34:35</publishTime>
+    </File>
+    <File Include="AutoMapper.dll">
+      <publishTime>07/01/2020 16:00:54</publishTime>
+    </File>
+    <File Include="AutoMapper.Extensions.Microsoft.DependencyInjection.dll">
+      <publishTime>07/09/2020 13:59:52</publishTime>
     </File>
     <File Include="BCrypt.Net-Next.dll">
       <publishTime>04/14/2020 16:10:48</publishTime>
@@ -118,6 +124,12 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Microsoft.AspNetCore.Razor.Language.dll">
       <publishTime>11/16/2019 06:08:46</publishTime>
     </File>
+    <File Include="Microsoft.Bcl.AsyncInterfaces.dll">
+      <publishTime>04/14/2020 22:39:12</publishTime>
+    </File>
+    <File Include="Microsoft.Bcl.HashCode.dll">
+      <publishTime>11/15/2019 08:38:50</publishTime>
+    </File>
     <File Include="Microsoft.CodeAnalysis.CSharp.dll">
       <publishTime>09/12/2019 15:08:58</publishTime>
     </File>
@@ -134,7 +146,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/12/2019 17:08:34</publishTime>
     </File>
     <File Include="Microsoft.Data.SqlClient.dll">
-      <publishTime>09/26/2019 18:43:28</publishTime>
+      <publishTime>09/26/2019 20:43:28</publishTime>
     </File>
     <File Include="Microsoft.Data.Sqlite.dll">
       <publishTime>06/17/2020 07:46:18</publishTime>
@@ -142,8 +154,20 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Microsoft.DotNet.PlatformAbstractions.dll">
       <publishTime>06/17/2020 04:37:52</publishTime>
     </File>
+    <File Include="Microsoft.EntityFrameworkCore.Abstractions.dll">
+      <publishTime>06/17/2020 07:46:14</publishTime>
+    </File>
+    <File Include="Microsoft.EntityFrameworkCore.dll">
+      <publishTime>06/17/2020 07:46:34</publishTime>
+    </File>
+    <File Include="Microsoft.EntityFrameworkCore.Relational.dll">
+      <publishTime>06/17/2020 07:46:40</publishTime>
+    </File>
     <File Include="Microsoft.EntityFrameworkCore.Sqlite.dll">
       <publishTime>06/17/2020 07:46:50</publishTime>
+    </File>
+    <File Include="Microsoft.EntityFrameworkCore.SqlServer.dll">
+      <publishTime>06/17/2020 07:46:46</publishTime>
     </File>
     <File Include="Microsoft.Extensions.Caching.Abstractions.dll">
       <publishTime>06/17/2020 06:46:58</publishTime>
@@ -199,6 +223,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Microsoft.IdentityModel.Tokens.dll">
       <publishTime>06/30/2020 01:09:50</publishTime>
     </File>
+    <File Include="Microsoft.OpenApi.dll">
+      <publishTime>09/15/2019 16:25:40</publishTime>
+    </File>
     <File Include="Microsoft.VisualStudio.Web.CodeGeneration.Contracts.dll">
       <publishTime>05/12/2020 19:55:36</publishTime>
     </File>
@@ -224,7 +251,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/11/2020 16:35:58</publishTime>
     </File>
     <File Include="Newtonsoft.Json.dll">
-      <publishTime>07/04/2019 10:13:14</publishTime>
+      <publishTime>12/03/2019 04:23:10</publishTime>
     </File>
     <File Include="Npgsql.dll">
       <publishTime>02/20/2020 17:36:24</publishTime>
@@ -233,7 +260,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/29/2020 08:08:52</publishTime>
     </File>
     <File Include="NuGet.Frameworks.dll">
-      <publishTime>07/04/2019 10:08:14</publishTime>
+      <publishTime>04/24/2018 19:27:10</publishTime>
     </File>
     <File Include="pl/Microsoft.CodeAnalysis.CSharp.resources.dll">
       <publishTime>09/12/2019 15:09:00</publishTime>
@@ -272,97 +299,109 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/12/2019 17:08:36</publishTime>
     </File>
     <File Include="runtimes/alpine-x64/native/libe_sqlite3.so">
-      <publishTime>05/28/2019 13:03:36</publishTime>
+      <publishTime>05/28/2019 15:03:36</publishTime>
     </File>
     <File Include="runtimes/linux-arm/native/libe_sqlite3.so">
-      <publishTime>05/28/2019 13:04:10</publishTime>
+      <publishTime>05/28/2019 15:04:10</publishTime>
     </File>
     <File Include="runtimes/linux-arm64/native/libe_sqlite3.so">
-      <publishTime>05/28/2019 13:03:52</publishTime>
+      <publishTime>05/28/2019 15:03:52</publishTime>
     </File>
     <File Include="runtimes/linux-armel/native/libe_sqlite3.so">
-      <publishTime>05/28/2019 13:04:26</publishTime>
+      <publishTime>05/28/2019 15:04:26</publishTime>
     </File>
     <File Include="runtimes/linux-musl-x64/native/libe_sqlite3.so">
-      <publishTime>05/28/2019 13:03:36</publishTime>
+      <publishTime>05/28/2019 15:03:36</publishTime>
     </File>
     <File Include="runtimes/linux-x64/native/libe_sqlite3.so">
-      <publishTime>05/28/2019 13:03:08</publishTime>
+      <publishTime>05/28/2019 15:03:08</publishTime>
     </File>
     <File Include="runtimes/linux-x86/native/libe_sqlite3.so">
-      <publishTime>05/28/2019 13:03:22</publishTime>
+      <publishTime>05/28/2019 15:03:22</publishTime>
     </File>
     <File Include="runtimes/osx-x64/native/libe_sqlite3.dylib">
-      <publishTime>05/28/2019 13:30:42</publishTime>
+      <publishTime>05/28/2019 15:30:42</publishTime>
     </File>
     <File Include="runtimes/unix/lib/netcoreapp2.0/System.Runtime.Caching.dll">
       <publishTime>05/15/2018 11:29:40</publishTime>
     </File>
     <File Include="runtimes/unix/lib/netcoreapp2.1/Microsoft.Data.SqlClient.dll">
-      <publishTime>09/26/2019 18:43:26</publishTime>
+      <publishTime>09/26/2019 20:43:26</publishTime>
     </File>
     <File Include="runtimes/win-arm/native/e_sqlite3.dll">
-      <publishTime>08/15/2019 16:14:08</publishTime>
+      <publishTime>08/15/2019 18:14:08</publishTime>
     </File>
     <File Include="runtimes/win-arm64/native/e_sqlite3.dll">
-      <publishTime>08/15/2019 16:14:28</publishTime>
+      <publishTime>08/15/2019 18:14:28</publishTime>
     </File>
     <File Include="runtimes/win-arm64/native/sni.dll">
-      <publishTime>07/04/2019 10:13:11</publishTime>
+      <publishTime>12/03/2019 04:23:12</publishTime>
     </File>
     <File Include="runtimes/win-x64/native/e_sqlite3.dll">
-      <publishTime>08/15/2019 16:13:54</publishTime>
+      <publishTime>08/15/2019 18:13:54</publishTime>
     </File>
     <File Include="runtimes/win-x64/native/sni.dll">
-      <publishTime>07/04/2019 10:13:11</publishTime>
+      <publishTime>12/03/2019 04:23:12</publishTime>
     </File>
     <File Include="runtimes/win-x86/native/e_sqlite3.dll">
-      <publishTime>08/15/2019 16:13:34</publishTime>
+      <publishTime>08/15/2019 18:13:34</publishTime>
     </File>
     <File Include="runtimes/win-x86/native/sni.dll">
-      <publishTime>07/04/2019 10:13:11</publishTime>
+      <publishTime>12/03/2019 04:23:12</publishTime>
     </File>
     <File Include="runtimes/win/lib/netcoreapp2.0/System.Runtime.Caching.dll">
       <publishTime>05/15/2018 11:29:40</publishTime>
     </File>
     <File Include="runtimes/win/lib/netcoreapp2.1/Microsoft.Data.SqlClient.dll">
-      <publishTime>09/26/2019 18:43:26</publishTime>
+      <publishTime>09/26/2019 20:43:26</publishTime>
     </File>
     <File Include="runtimes/win/lib/netstandard2.0/System.Security.Cryptography.ProtectedData.dll">
       <publishTime>05/15/2018 11:29:44</publishTime>
     </File>
     <File Include="SQLitePCLRaw.batteries_v2.dll">
-      <publishTime>11/01/2019 14:24:10</publishTime>
+      <publishTime>11/01/2019 17:24:10</publishTime>
     </File>
     <File Include="SQLitePCLRaw.core.dll">
-      <publishTime>11/01/2019 14:23:34</publishTime>
+      <publishTime>11/01/2019 17:23:34</publishTime>
     </File>
     <File Include="SQLitePCLRaw.nativelibrary.dll">
-      <publishTime>11/01/2019 14:23:32</publishTime>
+      <publishTime>11/01/2019 17:23:32</publishTime>
     </File>
     <File Include="SQLitePCLRaw.provider.dynamic_cdecl.dll">
-      <publishTime>11/01/2019 14:23:56</publishTime>
+      <publishTime>11/01/2019 17:23:56</publishTime>
+    </File>
+    <File Include="Swashbuckle.AspNetCore.Swagger.dll">
+      <publishTime>06/25/2020 21:14:40</publishTime>
+    </File>
+    <File Include="Swashbuckle.AspNetCore.SwaggerGen.dll">
+      <publishTime>06/25/2020 21:14:40</publishTime>
+    </File>
+    <File Include="Swashbuckle.AspNetCore.SwaggerUI.dll">
+      <publishTime>06/25/2020 21:14:44</publishTime>
     </File>
     <File Include="System.Collections.Immutable.dll">
-      <publishTime>04/14/2020 20:38:40</publishTime>
+      <publishTime>04/14/2020 22:38:40</publishTime>
     </File>
     <File Include="System.Composition.AttributedModel.dll">
-      <publishTime>07/04/2019 10:08:18</publishTime>
+      <publishTime>11/05/2016 01:55:42</publishTime>
     </File>
     <File Include="System.Composition.Convention.dll">
-      <publishTime>07/04/2019 10:08:18</publishTime>
+      <publishTime>11/05/2016 01:55:42</publishTime>
     </File>
     <File Include="System.Composition.Hosting.dll">
-      <publishTime>07/04/2019 10:08:19</publishTime>
+      <publishTime>11/05/2016 01:55:42</publishTime>
     </File>
     <File Include="System.Composition.Runtime.dll">
-      <publishTime>07/04/2019 10:08:21</publishTime>
+      <publishTime>11/05/2016 01:55:44</publishTime>
     </File>
     <File Include="System.Composition.TypedParts.dll">
-      <publishTime>07/04/2019 10:08:21</publishTime>
+      <publishTime>11/05/2016 01:55:46</publishTime>
+    </File>
+    <File Include="System.Configuration.ConfigurationManager.dll">
+      <publishTime>05/15/2018 11:29:38</publishTime>
     </File>
     <File Include="System.Diagnostics.DiagnosticSource.dll">
-      <publishTime>04/14/2020 20:48:06</publishTime>
+      <publishTime>04/14/2020 22:48:06</publishTime>
     </File>
     <File Include="System.IdentityModel.Tokens.Jwt.dll">
       <publishTime>06/30/2020 01:03:46</publishTime>
@@ -389,22 +428,22 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/12/2019 17:08:36</publishTime>
     </File>
     <File Include="web.config">
-      <publishTime>08/02/2020 18:01:50</publishTime>
+      <publishTime>08/06/2020 11:34:52</publishTime>
     </File>
     <File Include="WebApi.deps.json">
-      <publishTime>08/02/2020 18:01:50</publishTime>
+      <publishTime>08/06/2020 11:34:52</publishTime>
     </File>
     <File Include="WebApi.dll">
-      <publishTime>08/02/2020 18:01:47</publishTime>
+      <publishTime>08/06/2020 11:34:51</publishTime>
     </File>
     <File Include="WebApi.exe">
-      <publishTime>08/02/2020 18:01:48</publishTime>
+      <publishTime>08/06/2020 11:34:51</publishTime>
     </File>
     <File Include="WebApi.pdb">
-      <publishTime>08/02/2020 18:01:47</publishTime>
+      <publishTime>08/06/2020 11:34:51</publishTime>
     </File>
     <File Include="WebApi.runtimeconfig.json">
-      <publishTime>08/02/2020 15:06:55</publishTime>
+      <publishTime>08/03/2020 13:39:46</publishTime>
     </File>
     <File Include="zh-Hans/Microsoft.CodeAnalysis.CSharp.resources.dll">
       <publishTime>09/12/2019 15:09:00</publishTime>
