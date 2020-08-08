@@ -3,19 +3,21 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WebApi.Helpers;
 
 namespace WebApi.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20200721181910_11")]
+    partial class _11
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasDefaultSchema("DBDoory")
+                .HasDefaultSchema("tekyerco_doory")
                 .HasAnnotation("ProductVersion", "3.1.6")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -191,7 +193,7 @@ namespace WebApi.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Address");
+                    b.ToTable("Address","dbo");
                 });
 
             modelBuilder.Entity("WebApi.Entities.AreaCode", b =>
@@ -220,7 +222,7 @@ namespace WebApi.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("AreaCode");
+                    b.ToTable("AreaCode","tekyerco_kozmi");
                 });
 
             modelBuilder.Entity("WebApi.Entities.Career", b =>
@@ -268,7 +270,7 @@ namespace WebApi.Migrations
 
                     b.HasIndex("CareerPostCodeId");
 
-                    b.ToTable("Career");
+                    b.ToTable("Career","dbo");
                 });
 
             modelBuilder.Entity("WebApi.Entities.CareerOrder", b =>
@@ -288,7 +290,7 @@ namespace WebApi.Migrations
 
                     b.HasIndex("OrderId");
 
-                    b.ToTable("CareerOrder");
+                    b.ToTable("Career-Order","dbo");
                 });
 
             modelBuilder.Entity("WebApi.Entities.Cart", b =>
@@ -314,7 +316,7 @@ namespace WebApi.Migrations
 
                     b.HasIndex("CustomerId");
 
-                    b.ToTable("Cart");
+                    b.ToTable("Cart","dbo");
                 });
 
             modelBuilder.Entity("WebApi.Entities.CartItem", b =>
@@ -364,7 +366,7 @@ namespace WebApi.Migrations
 
                     b.HasIndex("VoucherId");
 
-                    b.ToTable("CartItem");
+                    b.ToTable("CartItem","dbo");
                 });
 
             modelBuilder.Entity("WebApi.Entities.Category", b =>
@@ -403,7 +405,7 @@ namespace WebApi.Migrations
 
                     b.HasIndex("UpCategoryId");
 
-                    b.ToTable("Category");
+                    b.ToTable("Category","production");
                 });
 
             modelBuilder.Entity("WebApi.Entities.City", b =>
@@ -430,7 +432,7 @@ namespace WebApi.Migrations
 
                     b.HasIndex("CountryId");
 
-                    b.ToTable("City");
+                    b.ToTable("City","dbo");
                 });
 
             modelBuilder.Entity("WebApi.Entities.Comment", b =>
@@ -468,7 +470,7 @@ namespace WebApi.Migrations
 
                     b.HasIndex("StoreId");
 
-                    b.ToTable("Comment");
+                    b.ToTable("Comment","dbo");
                 });
 
             modelBuilder.Entity("WebApi.Entities.Contact", b =>
@@ -505,7 +507,7 @@ namespace WebApi.Migrations
 
                     b.HasIndex("StoreId");
 
-                    b.ToTable("Contact");
+                    b.ToTable("Contact","tekyerco_kozmi");
                 });
 
             modelBuilder.Entity("WebApi.Entities.Country", b =>
@@ -526,7 +528,7 @@ namespace WebApi.Migrations
 
                     b.HasKey("CountryId");
 
-                    b.ToTable("Country");
+                    b.ToTable("Country","dbo");
                 });
 
             modelBuilder.Entity("WebApi.Entities.Customer", b =>
@@ -575,7 +577,7 @@ namespace WebApi.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Customer");
+                    b.ToTable("Customer","sales");
                 });
 
             modelBuilder.Entity("WebApi.Entities.CustomerAddress", b =>
@@ -594,7 +596,7 @@ namespace WebApi.Migrations
 
                     b.HasIndex("AddressId");
 
-                    b.ToTable("CustomerAddress");
+                    b.ToTable("Customer-Address","dbo");
                 });
 
             modelBuilder.Entity("WebApi.Entities.DeliveryRegion", b =>
@@ -618,7 +620,7 @@ namespace WebApi.Migrations
                     b.HasKey("RegionId")
                         .HasName("PK_Regions");
 
-                    b.ToTable("DeliveryRegion");
+                    b.ToTable("DeliveryRegion","dbo");
                 });
 
             modelBuilder.Entity("WebApi.Entities.District", b =>
@@ -639,7 +641,7 @@ namespace WebApi.Migrations
 
                     b.HasKey("DistrictId");
 
-                    b.ToTable("District");
+                    b.ToTable("District","dbo");
                 });
 
             modelBuilder.Entity("WebApi.Entities.FavoredProduct", b =>
@@ -687,7 +689,7 @@ namespace WebApi.Migrations
 
                     b.HasIndex("StoreId");
 
-                    b.ToTable("FavoredProduct");
+                    b.ToTable("FavoredProduct","tekyerco_kozmi");
                 });
 
             modelBuilder.Entity("WebApi.Entities.FavoredStore", b =>
@@ -714,7 +716,7 @@ namespace WebApi.Migrations
 
                     b.HasIndex("CustomerId");
 
-                    b.ToTable("FavoredStore");
+                    b.ToTable("FavoredStore","tekyerco_kozmi");
                 });
 
             modelBuilder.Entity("WebApi.Entities.FilterStore", b =>
@@ -739,7 +741,7 @@ namespace WebApi.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("FilterStore");
+                    b.ToTable("FilterStore","tekyerco_kozmi");
                 });
 
             modelBuilder.Entity("WebApi.Entities.FilterStoreStore", b =>
@@ -763,7 +765,7 @@ namespace WebApi.Migrations
 
                     b.HasIndex("StoreFeatureId");
 
-                    b.ToTable("FilterStoreStore");
+                    b.ToTable("FilterStore-Store","tekyerco_kozmi");
                 });
 
             modelBuilder.Entity("WebApi.Entities.Image", b =>
@@ -800,7 +802,7 @@ namespace WebApi.Migrations
 
                     b.HasKey("ImageId");
 
-                    b.ToTable("Image");
+                    b.ToTable("Image","dbo");
                 });
 
             modelBuilder.Entity("WebApi.Entities.Layout", b =>
@@ -827,7 +829,7 @@ namespace WebApi.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Layout");
+                    b.ToTable("Layout","tekyerco_kozmi");
                 });
 
             modelBuilder.Entity("WebApi.Entities.LayoutItem", b =>
@@ -872,7 +874,7 @@ namespace WebApi.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("LayoutItem");
+                    b.ToTable("LayoutItem","tekyerco_kozmi");
                 });
 
             modelBuilder.Entity("WebApi.Entities.LayoutLayoutItem", b =>
@@ -893,7 +895,7 @@ namespace WebApi.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("LayoutLayoutItem");
+                    b.ToTable("Layout_LayoutItem","tekyerco_kozmi");
                 });
 
             modelBuilder.Entity("WebApi.Entities.Location", b =>
@@ -992,7 +994,7 @@ namespace WebApi.Migrations
 
                     b.HasIndex("StoreId");
 
-                    b.ToTable("Location");
+                    b.ToTable("Location","dbo");
                 });
 
             modelBuilder.Entity("WebApi.Entities.Order", b =>
@@ -1101,7 +1103,7 @@ namespace WebApi.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Order");
+                    b.ToTable("Order","sales");
                 });
 
             modelBuilder.Entity("WebApi.Entities.OrderItem", b =>
@@ -1157,7 +1159,7 @@ namespace WebApi.Migrations
 
                     b.HasIndex("ProductId");
 
-                    b.ToTable("OrderItem");
+                    b.ToTable("OrderItem","sales");
                 });
 
             modelBuilder.Entity("WebApi.Entities.OrderSlots", b =>
@@ -1177,7 +1179,7 @@ namespace WebApi.Migrations
 
                     b.HasIndex("SlotId");
 
-                    b.ToTable("OrderSlots");
+                    b.ToTable("Order_Slots","tekyerco_kozmi");
                 });
 
             modelBuilder.Entity("WebApi.Entities.Payment", b =>
@@ -1218,7 +1220,7 @@ namespace WebApi.Migrations
 
                     b.HasKey("PaymentId");
 
-                    b.ToTable("Payment");
+                    b.ToTable("Payment","dbo");
                 });
 
             modelBuilder.Entity("WebApi.Entities.PostCodeDistance", b =>
@@ -1247,7 +1249,7 @@ namespace WebApi.Migrations
 
                     b.HasIndex("SecondPostCodeId");
 
-                    b.ToTable("PostCodeDistance");
+                    b.ToTable("PostCode-Distance","tekyerco_kozmi");
                 });
 
             modelBuilder.Entity("WebApi.Entities.PostCodeDistrict", b =>
@@ -1273,7 +1275,7 @@ namespace WebApi.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("PostCodeDistrict");
+                    b.ToTable("PostCodeDistrict","tekyerco_kozmi");
                 });
 
             modelBuilder.Entity("WebApi.Entities.PostCodeSector", b =>
@@ -1295,7 +1297,7 @@ namespace WebApi.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("PostCodeSector");
+                    b.ToTable("PostCodeSector","tekyerco_kozmi");
                 });
 
             modelBuilder.Entity("WebApi.Entities.Postcode", b =>
@@ -1350,7 +1352,7 @@ namespace WebApi.Migrations
 
                     b.HasIndex("SectorId");
 
-                    b.ToTable("Postcode");
+                    b.ToTable("Postcode","dbo");
                 });
 
             modelBuilder.Entity("WebApi.Entities.PostcodeDeliveryDate", b =>
@@ -1377,7 +1379,7 @@ namespace WebApi.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("PostcodeDeliveryDate");
+                    b.ToTable("Postcode_DeliveryDate","tekyerco_kozmi");
                 });
 
             modelBuilder.Entity("WebApi.Entities.PostcodeStores", b =>
@@ -1404,7 +1406,7 @@ namespace WebApi.Migrations
 
                     b.HasIndex("StoreId");
 
-                    b.ToTable("PostcodeStores");
+                    b.ToTable("Postcode_Stores","tekyerco_kozmi");
                 });
 
             modelBuilder.Entity("WebApi.Entities.Product", b =>
@@ -1482,7 +1484,7 @@ namespace WebApi.Migrations
 
                     b.HasIndex("CategoryId");
 
-                    b.ToTable("Product");
+                    b.ToTable("Product","production");
                 });
 
             modelBuilder.Entity("WebApi.Entities.ProductAlternateProduct", b =>
@@ -1506,7 +1508,7 @@ namespace WebApi.Migrations
 
                     b.HasIndex("RelatedProductId");
 
-                    b.ToTable("ProductAlternateProduct");
+                    b.ToTable("Product-AlternateProduct","dbo");
                 });
 
             modelBuilder.Entity("WebApi.Entities.ProductAttributes", b =>
@@ -1525,7 +1527,7 @@ namespace WebApi.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Attribute");
+                    b.ToTable("Attribute","tekyerco_kozmi");
                 });
 
             modelBuilder.Entity("WebApi.Entities.ProductBrand", b =>
@@ -1550,7 +1552,7 @@ namespace WebApi.Migrations
                     b.HasKey("BrandId")
                         .HasName("PK__Brands__5E5A8E2705218EA9");
 
-                    b.ToTable("ProductBrand");
+                    b.ToTable("ProductBrand","production");
                 });
 
             modelBuilder.Entity("WebApi.Entities.ProductsStores", b =>
@@ -1585,7 +1587,7 @@ namespace WebApi.Migrations
 
                     b.HasIndex("ProductId");
 
-                    b.ToTable("ProductsStores");
+                    b.ToTable("Products-Stores","tekyerco_kozmi");
                 });
 
             modelBuilder.Entity("WebApi.Entities.Purchase", b =>
@@ -1615,7 +1617,7 @@ namespace WebApi.Migrations
 
                     b.HasKey("PurchaseId");
 
-                    b.ToTable("Purchase");
+                    b.ToTable("Purchase","dbo");
                 });
 
             modelBuilder.Entity("WebApi.Entities.PurchaseItem", b =>
@@ -1669,7 +1671,7 @@ namespace WebApi.Migrations
 
                     b.HasIndex("StoreId");
 
-                    b.ToTable("PurchaseItem");
+                    b.ToTable("PurchaseItem","dbo");
                 });
 
             modelBuilder.Entity("WebApi.Entities.Region", b =>
@@ -1705,7 +1707,7 @@ namespace WebApi.Migrations
 
                     b.HasIndex("DistrictId");
 
-                    b.ToTable("Region");
+                    b.ToTable("Region","dbo");
                 });
 
             modelBuilder.Entity("WebApi.Entities.RegionStreet", b =>
@@ -1726,7 +1728,7 @@ namespace WebApi.Migrations
 
                     b.HasIndex("StreetId");
 
-                    b.ToTable("RegionStreet");
+                    b.ToTable("Region-Street","dbo");
                 });
 
             modelBuilder.Entity("WebApi.Entities.SellerBrand", b =>
@@ -1746,7 +1748,7 @@ namespace WebApi.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("SellerBrand");
+                    b.ToTable("SellerBrand","tekyerco_kozmi");
                 });
 
             modelBuilder.Entity("WebApi.Entities.ShopGroup", b =>
@@ -1771,7 +1773,7 @@ namespace WebApi.Migrations
 
                     b.HasKey("ShopGroupId");
 
-                    b.ToTable("ShopGroup");
+                    b.ToTable("ShopGroup","tekyerco_kozmi");
                 });
 
             modelBuilder.Entity("WebApi.Entities.ShopGroupProduct", b =>
@@ -1792,7 +1794,7 @@ namespace WebApi.Migrations
 
                     b.HasKey("ItemId");
 
-                    b.ToTable("ShopGroupProduct");
+                    b.ToTable("ShopGroup-Product","tekyerco_kozmi");
                 });
 
             modelBuilder.Entity("WebApi.Entities.Slot", b =>
@@ -1876,7 +1878,7 @@ namespace WebApi.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Slot");
+                    b.ToTable("Slot","dbo");
                 });
 
             modelBuilder.Entity("WebApi.Entities.SlotPattern", b =>
@@ -1997,7 +1999,7 @@ namespace WebApi.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("SlotPattern");
+                    b.ToTable("SlotPattern","tekyerco_kozmi");
                 });
 
             modelBuilder.Entity("WebApi.Entities.Staff", b =>
@@ -2057,7 +2059,7 @@ namespace WebApi.Migrations
 
                     b.HasIndex("StoreId");
 
-                    b.ToTable("Staff");
+                    b.ToTable("Staff","sales");
                 });
 
             modelBuilder.Entity("WebApi.Entities.Stock", b =>
@@ -2085,7 +2087,7 @@ namespace WebApi.Migrations
 
                     b.HasIndex("ProductId");
 
-                    b.ToTable("Stock");
+                    b.ToTable("Stock","production");
                 });
 
             modelBuilder.Entity("WebApi.Entities.Store", b =>
@@ -2181,7 +2183,7 @@ namespace WebApi.Migrations
 
                     b.HasIndex("StoreCategoryId");
 
-                    b.ToTable("Store");
+                    b.ToTable("Store","sales");
                 });
 
             modelBuilder.Entity("WebApi.Entities.StoreCategory", b =>
@@ -2205,7 +2207,7 @@ namespace WebApi.Migrations
 
                     b.HasIndex("Up");
 
-                    b.ToTable("StoreCategory");
+                    b.ToTable("StoreCategory","tekyerco_kozmi");
                 });
 
             modelBuilder.Entity("WebApi.Entities.Street", b =>
@@ -2241,7 +2243,7 @@ namespace WebApi.Migrations
 
                     b.HasIndex("Country");
 
-                    b.ToTable("Street");
+                    b.ToTable("Street","dbo");
                 });
 
             modelBuilder.Entity("WebApi.Entities.Supplier", b =>
@@ -2270,7 +2272,7 @@ namespace WebApi.Migrations
 
                     b.HasIndex("StoreId");
 
-                    b.ToTable("Supplier");
+                    b.ToTable("Supplier","dbo");
                 });
 
             modelBuilder.Entity("WebApi.Entities.User", b =>
@@ -2309,7 +2311,7 @@ namespace WebApi.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("User");
+                    b.ToTable("User","tekyerco_kozmi");
                 });
 
             modelBuilder.Entity("WebApi.Entities.UserShoppingCartProducts", b =>
@@ -2356,7 +2358,7 @@ namespace WebApi.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("UserShoppingCartProducts");
+                    b.ToTable("User_ShoppingCartProducts","tekyerco_kozmi");
                 });
 
             modelBuilder.Entity("WebApi.Entities.Voucher", b =>
@@ -2383,7 +2385,7 @@ namespace WebApi.Migrations
 
                     b.HasKey("VoucherId");
 
-                    b.ToTable("Voucher");
+                    b.ToTable("Voucher","dbo");
                 });
 
             modelBuilder.Entity("WebApi.Entities.WishList", b =>
@@ -2405,7 +2407,7 @@ namespace WebApi.Migrations
 
                     b.HasIndex("CustomerId");
 
-                    b.ToTable("WishList");
+                    b.ToTable("WishList","tekyerco_kozmi");
                 });
 
             modelBuilder.Entity("WebApi.Entities.WishlistItem", b =>
@@ -2431,7 +2433,7 @@ namespace WebApi.Migrations
 
                     b.HasIndex("WishListId");
 
-                    b.ToTable("WishlistItem");
+                    b.ToTable("WishlistItem","tekyerco_kozmi");
                 });
 
             modelBuilder.Entity("WebApi.Entities.Account", b =>
